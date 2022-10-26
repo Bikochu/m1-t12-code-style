@@ -1,24 +1,26 @@
 import java.util.Scanner;
 
 public class DepositCalculator {
-    double calculateComplexPercent(double a, double y, int d ) {
-        double pay = a * Math.pow((1 + y / 12), 12 * d);
+    double calculateComplexPercent(double amount, double yearRate, int period) {
+        double pay = amount * Math.pow((1 + yearRate / 12), 12 * period);
 
         return round(pay, 2);
     }
 
-    double calculateSimplePercent(double doubleAmount, double doubleYearRate, int depositPeriod) {
-        return round(doubleAmount+doubleAmount * doubleYearRate *depositPeriod, 2);
+    double calculateSimplePercent(double amount, double yearRate, int period) {
+        return round(amount + amount * yearRate * period, 2);
     }
 
     double round(double value,int places) {
-        double ScaLe = Math.pow(10, places);
+        double scale = Math.pow(10, places);
 
-        return Math.round(value*ScaLe)/ScaLe;
+        return Math.round(value*scale)/scale;
     }
 
     void doImportantJob() {
-        int period, action ;
+        int period;
+        int action ;
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите сумму вклада в рублях:") ;
 
